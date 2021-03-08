@@ -567,8 +567,9 @@ async def on_message(message):
     if any(word in msg for word in greetings):
         await message.channel.send(random.choice(greet_response))
 
-    elif "Nice." in msg:
-        await message.channel.send("Nice.")
+    elif "Nice" in msg:
+        if random.randint(0,100) < 36:
+            await message.channel.send("Nice")
 
     elif any([keyword in msg for keyword in ('fortnite', 'Fortnite')]):
         await message.channel.send('Imagine talking about fartnite')
@@ -587,20 +588,22 @@ async def on_message(message):
     elif "Hello there" in message.content:
         await message.channel.send("https://media0.giphy.com/media/8JTFsZmnTR1Rs1JFVP/giphy.gif")
     elif ":x0bsolHelloThere:" in message.content:
-        await message.channel.send("https://media0.giphy.com/media/8JTFsZmnTR1Rs1JFVP/giphy.gif")
+        if random.randint(0,100) < 36:
+            await message.channel.send("https://media0.giphy.com/media/8JTFsZmnTR1Rs1JFVP/giphy.gif")
 
     elif "men" in msg:
-        i = 0
-        mystring = message.content
-        parts = mystring.split(' ')
-        while(i < 50):
-            if "men" in parts[i]:
+        if random.randint(0,100) < 50:
+         i = 0
+         mystring = message.content
+         parts = mystring.split(' ')
+         while(i < 50):
+             if "men" in parts[i]:
                 parts1 = parts[i].replace("men", "women")
                 parts2 = parts[i].replace("men", "children")
                 fullstring = "Not only the " + parts[i] + " but also the " + parts1 + " and " + parts2 + " too."
                 await message.channel.send(fullstring)
                 break
-            else:
+             else:
                 i=i+1
 
 @bot.command(name="new", aliases=["create"])
